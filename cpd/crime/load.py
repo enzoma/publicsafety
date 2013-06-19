@@ -45,8 +45,8 @@ def load_crimes(crimefile, verbose = False):
         domestic  = True if row[9]=='True' else False,\
         beat      = int(row[10]),\
         district  = None if row[11]=='' else int(row[10]),\
-        ward      = int(row[12]),\
-        comm_area = int(row[13]),\
+        ward      = None if row[12]=='' else int(row[12]),\
+        comm_area = None if row[13]=='' else int(row[13]),\
         loc       = None if row[19]=='' else Point((Decimal(row[19]), Decimal(row[20]))))
       except:
         crime =  Crime(\
@@ -62,8 +62,8 @@ def load_crimes(crimefile, verbose = False):
         domestic  = True if row[9]=='True' else False,\
         beat      = int(row[10]),\
         district  = None if row[11]=='' else int(row[10]),\
-        ward      = int(row[12]),\
-        comm_area = int(row[13]),\
+        ward      = None if row[12]=='' else int(row[12]),\
+        comm_area = None if row[13]=='' else int(row[13]),\
         loc       = None if row[19]=='' else Point((Decimal(row[19]), Decimal(row[20]))))
 
 

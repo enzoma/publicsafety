@@ -25,8 +25,8 @@ class Crime(models.Model):
   domestic  = models.BooleanField('Domestic')
   beat      = models.IntegerField('Beat number')
   district  = models.IntegerField('District',null=True)
-  ward      = models.IntegerField('Ward')
-  comm_area = models.IntegerField('Community Area')
+  ward      = models.IntegerField('Ward',null=True)
+  comm_area = models.IntegerField('Community Area',null=True)
   
   loc       = models.PointField(null=True)
   objects   = models.GeoManager()
