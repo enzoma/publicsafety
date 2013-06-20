@@ -6,11 +6,11 @@ class PoliceBeat(models.Model):
   beat     = models.IntegerField('Beat')
   beat_num = models.IntegerField('Beat number')
 
-  mpoly    = models.MultiPolygonField()
+  geo      = models.MultiPolygonField()
   objects  = models.GeoManager()
 
   def __unicode__(self):
-    return self.beat_num
+    return str(self.beat_num)
 
 class Crime(models.Model):
   crimeid   = models.CharField('ID', max_length=20)
@@ -23,12 +23,13 @@ class Crime(models.Model):
   locdesc   = models.CharField('Location Description', max_length=100)
   arrest    = models.BooleanField('Arrest')
   domestic  = models.BooleanField('Domestic')
-  beat      = models.IntegerField('Beat number')
+  beat_num  = models.IntegerField('Beat number')
   district  = models.IntegerField('District',null=True)
   ward      = models.IntegerField('Ward',null=True)
   comm_area = models.IntegerField('Community Area',null=True)
+  fbi_code  = models.CharField('FBI code',max_length=20)
   
-  loc       = models.PointField(null=True)
+  geo       = models.PointField(null=True)
   objects   = models.GeoManager()
 
   def __unicode__(self):
