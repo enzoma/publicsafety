@@ -1,6 +1,6 @@
 import os, csv, datetime
 from django.contrib.gis.utils import LayerMapping
-from models import PoliceBeat, Crime
+from models import PoliceBeat, Crime, CensusTract
 from decimal import Decimal
 from django.contrib.gis.geos import Point
 
@@ -13,14 +13,24 @@ policebeat_mapping = {
   'sector'  : 'SECTOR',
   'beat'    : 'BEAT',
   'beat_num': 'BEAT_NUM',
+  'geo'     : 'POLYGON',
+}
+
+beat_shp = '/mnt/data1/CPD/policebeats.longlat/geo_aerh-rz74-1.shp'
+
+def load_policebeat(verbose = True):
+  lm = LayerMapping(PoliceBeat, beat_shp, policebeat_mapping)
+  lm.save(strict=True, verbose = verbose)
+
+censustract_mapping = {
+  'tractid' : 'GEOID10',
   'geo'     : 'MULTIPOLYGON',
 }
 
-beat_shp = '/mnt/data1/CPD/policebeats/geo_aerh-rz74-1.shp'
+censustract_shp = '/mnt/data1/CPD/censustracts.2010/CensusTractsTIGER2010.shp'
 
-def load_policebeat(verbose = True):
-  lm = LayerMapping(PoliceBeat, beat_shp, policebeat_mapping,\
-                    transform=False)
+def load_censustract(verbose = True):
+  lm = LayerMapping(CensusTract, censustract_shp, censustract_mapping)
   lm.save(strict = True, verbose = verbose)
 
 ########################################################################
@@ -50,7 +60,12 @@ def load_crimes(crimefile, verbose = False):
       ward      = None if row[12]=='' else int(row[12])
       comm_area = None if row[13]=='' else int(row[13])
       fbi_code  = row[14]
-      geo       = None if row[19]=='' else Point((Decimal(row[19]), Decimal(row[20])))
+      geo       = None if row[19]=='' else Point((Decimal(row[20]), Decimal(row[19])),srid=4326).transform(2790)
+      beat      = None
+      censustract = None
+      if geo != None:
+        censustract = CensusTract.objects.get(geo__contains=geo)
+        beat = PoliceBeat.objects.get(geo__contains=geo)
 
       try:
         # See if there is a duplicate crime in the database already.
@@ -71,6 +86,8 @@ def load_crimes(crimefile, verbose = False):
           ward      = ward,\
           comm_area = comm_area,\
           fbi_code  = fbi_code,\
+          beat      = beat,\
+          censustract = censustract,\
           geo       = geo)
       except:
         # No previous crime matching this entry, so create a new one.
@@ -90,11 +107,14 @@ def load_crimes(crimefile, verbose = False):
           ward      = ward,\
           comm_area = comm_area,\
           fbi_code  = fbi_code,\
+          beat      = beat,\
+          censustract = censustract,\
           geo       = geo)
 
       crime.save()
 
 
 def run(verbose = True):
-  load_crimes(crimefile, verbose = verbose)
   load_policebeat(verbose = verbose)
+  load_censustract(verbose = verbose)
+  load_crimes(crimefile, verbose = verbose)
