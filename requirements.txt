@@ -1,5 +1,7 @@
 Django==1.5.1
 GDAL==1.9.1
+GeoAlchemy2==0.2.1
+SQLAlchemy==0.8.1
 ipython==0.13.2
 matplotlib==1.2.1
 numpy==1.7.1
