@@ -94,7 +94,7 @@ def create_crime_table(crimefile='/mnt/data1/CPD/crimes_2013.csv'):
       arrest    = True if row[8].lower()=='true' else False
       domestic  = True if row[9].lower()=='true' else False
       portal_beat = int(row[10])
-      district  = None if row[11]=='' else int(row[10])
+      district  = None if row[11]=='' else int(row[11])
       ward      = None if row[12]=='' else int(row[12])
       comm_area = None if row[13]=='' else int(row[13])
       fbi_code  = row[14]
