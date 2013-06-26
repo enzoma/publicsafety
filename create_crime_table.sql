@@ -9,7 +9,7 @@ CREATE SEQUENCE crime.crime_seq;
 CREATE TABLE crime.crimes (
   id      INTEGER NOT NULL DEFAULT nextval('crime_seq'),
   crimeid VARCHAR NOT NULL,
-  caseno  VARCHAR NOT NULL,
+  caseno  VARCHAR,
   ts      TIMESTAMP NOT NULL, 
   block   VARCHAR NOT NULL,
   iucr    VARCHAR NOT NULL,
@@ -41,7 +41,7 @@ ALTER TABLE ONLY crime.crimes
 ALTER TABLE ONLY crime.crimes
   ADD CONSTRAINT crime_unique UNIQUE(id);
 
-\copy crime.crimes (crimeid, caseno, ts, block, iucr, ptype, descr, locdescr, arrest, domestic, beat, district, ward, commarea, fbicode, x, y, year, updated, latitude, longitude, locstr) FROM '/mnt/data1/CPD/crimes_2013.csv' CSV HEADER
+\copy crime.crimes (crimeid, caseno, ts, block, iucr, ptype, descr, locdescr, arrest, domestic, beat, district, ward, commarea, fbicode, x, y, year, updated, latitude, longitude, locstr) FROM '/mnt/data1/CPD/crimes_2001-2013.csv' CSV HEADER
 
 UPDATE crime.crimes SET geo = ST_Transform(ST_SetSRID(ST_Point("longitude","latitude"),4326),3435);
 
