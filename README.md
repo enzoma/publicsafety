@@ -9,7 +9,7 @@ Instructions
 ```
 export PYTHONPATH=$PYTHONPATH:/path/to/dssg-cpd-project
 ```
-* Run the SQL init scripts
+* Run the SQL init scripts (`psql --host HOST --user USER DBNAME -f SCRIPT.sql`)
 * Start analyzing data
 
 
