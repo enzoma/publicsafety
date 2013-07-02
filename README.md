@@ -2,6 +2,16 @@ DSSG: Chicago Police Department
 ===
 We are determining whether or not crime spikes when convicts return home after serving their sentences.
 
+Instructions
+===
+* Make sure PostgreSQL and other required software is installed, as described in the wiki.
+* Check out the git repository and add dssg-cpd-project to your PYTHONPATH:
+```
+export PYTHONPATH=$PYTHONPATH:/path/to/dssg-cpd-project
+```
+* Run the SQL init scripts (`psql --host HOST --user USER DBNAME -f SCRIPT.sql`)
+* Start analyzing data
+
 
 Motivation
 ===
@@ -46,3 +56,10 @@ six==1.3.0
 wsgiref==0.1.2
 yolk==0.4.3
 ```
+
+Contact Us
+===
+Tom Plagge <tplagge@gmail.com>
+Varoon Bashyakarla <vbashyakarla@gmail.com>
+Ed McFowland <mcfowland@cmu.edu>
+Paul Meinshausen <meinshap@gmail.com>
