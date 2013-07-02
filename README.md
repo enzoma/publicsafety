@@ -59,7 +59,7 @@ yolk==0.4.3
 
 Contact Us
 ===
-Tom Plagge <tplagge@gmail.com>
-Varoon Bashyakarla <vbashyakarla@gmail.com>
-Ed McFowland <mcfowland@cmu.edu>
-Paul Meinshausen <meinshap@gmail.com>
+* Tom Plagge <tplagge@gmail.com>
+* Varoon Bashyakarla <vbashyakarla@gmail.com>
+* Ed McFowland <mcfowland@cmu.edu>
+* Paul Meinshausen <meinshap@gmail.com>
