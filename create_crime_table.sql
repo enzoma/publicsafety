@@ -46,3 +46,5 @@ ALTER TABLE ONLY crime.crimes
 UPDATE crime.crimes SET geo = ST_Transform(ST_SetSRID(ST_Point("longitude","latitude"),4326),3435);
 
 CREATE INDEX crime_geoidx ON crime.crimes USING gist(geo); 
+
+UPDATE crime.crimes SET iucr='0'||iucr WHERE iucr LIKE '___';

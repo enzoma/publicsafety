@@ -4,7 +4,7 @@ CREATE SEQUENCE crime.iucr_seq;
 
 CREATE TABLE crime.iucr (
   id      INTEGER NOT NULL DEFAULT nextval('iucr_seq'),
-  iucr    INTEGER,
+  iucr    VARCHAR NOT NULL,
   pdesc   VARCHAR NOT NULL,
   sdesc   VARCHAR NOT NULL,
   indexcrime VARCHAR NOT NULL
@@ -19,4 +19,4 @@ ALTER TABLE ONLY crime.iucr
 
 \copy crime.iucr (iucr,pdesc,sdesc,indexcrime) FROM '/mnt/data1/CPD/iucr.csv' CSV HEADER
 
-create view indexcrimes as (select c.* from crimes c join iucr i on c.iucr=i.iucr::varchar where i.indexcrime='I');
+create view indexcrimes as (select c.* from crimes c join iucr i on c.iucr=i.iucr where i.indexcrime='I');
