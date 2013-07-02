@@ -46,3 +46,10 @@ six==1.3.0
 wsgiref==0.1.2
 yolk==0.4.3
 ```
+
+Contact Us
+===
+Tom Plagge <tplagge@gmail.com>
+Varoon Bashyakarla <vbashyakarla@gmail.com>
+Ed McFowland <mcfowland@cmu.edu>
+Paul Meinshausen <meinshap@gmail.com>
