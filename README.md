@@ -1,6 +1,6 @@
 DSSG: Chicago Police Department
 ===
-We are determining whether or not crime spikes when ex-prisoners return home after serving their sentences.
+We are determining whether or not crime spikes when convicts return home after serving their sentences.
 
 
 Motivation
@@ -10,6 +10,7 @@ budget to pay for overtime police had been depleted, and 2012 was a particularly
 The CPD employs predictive spatial-temporal models and social network analysis to preempt crime but have often
 arrested inviduals with criminal history records, some of which are rather extensive.  As a result, we grew interested
 in determining whether or not crime spikes when prisoners return home upon completing their prison sentences.  
+
 This is a particularly interesting question for two primary reasons.  First, the CPD has not yet studied associations
 between arrests, prison sentences, and potential crime spikes.  Secondly, if such an association exists, this
 analysis can be used to foster dialogues between law enforcement and criminal justice efforts to refine sentences
