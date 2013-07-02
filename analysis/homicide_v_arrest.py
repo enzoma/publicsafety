@@ -21,5 +21,5 @@ cur.execute(select_sql,('HOMICIDE',))
 
 # Fetch the results
 out = cur.fetchall()
-with open('/home/tplagge/tmp.pkl','wb') as f:
+with open('tmp.pkl','wb') as f:
   cPickle.dump(out,f)
