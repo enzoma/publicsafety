@@ -12,4 +12,5 @@ shp2pgsql -I -s 3435 /mnt/data1/CPD/Shapefiles/Comm_20Areas/CommAreas.shp CommAr
 shp2pgsql -I -s 3435 /mnt/data1/CPD/Shapefiles/Wards/Wards.shp wards | psql --host $HOST --user $USER $NAME
 shp2pgsql -I -s 3435 /mnt/data1/CPD/Shapefiles/cpd_stations/cpd_stations.shp CPDStations | psql --host $HOST --user $USER $NAME
 shp2pgsql -I -s 3435 /mnt/data1/CPD/Shapefiles/Hospitals/Hospitals.shp Hospitals | psql --host $HOST --user $USER $NAME
+shp2pgsql -I -s 3435 /mnt/data1/CPD/Shapefiles/Census_20Tracts/Hospitals.shp Hospitals | psql --host $HOST --user $USER $NAME
 
