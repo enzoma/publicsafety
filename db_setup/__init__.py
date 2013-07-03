@@ -4,8 +4,9 @@ import os
 DB_USER  = 'cpd'
 DB_NAME  = 'cpd'
 DB_HOST  = 'dssgpg'
+DB_PASSWORD  = None
 
-setup_filename = '../db_setup.cfg'
+setup_filename = 'db_setup.cfg'
 
 config = {}
 
@@ -20,3 +21,5 @@ if 'DB_HOST' in config.keys():
   DB_HOST = config['DB_HOST']
 if 'DB_NAME' in config.keys():
   DB_NAME = config['DB_NAME']
+if 'DB_PASSWORD' in config.keys():
+  DB_PASSWORD = config['DB_PASSWORD']
