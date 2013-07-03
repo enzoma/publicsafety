@@ -8,6 +8,9 @@ def dayofyear_from_date(date):
   '''Get the day of the year (1-366) from a datetime.date object.'''
   return int(date.strftime('%j'))
 
+def date_from_dayofyear(dayofyear, year):
+  return datetime.datetime.strptime(str(dayofyear)+' '+str(year), '%j %Y').date()
+
 def dayofweek_from_date(date):
   '''Get the day of the week (0-6) from a datetime.date ojbect.'''
   return date.weekday()
