@@ -45,9 +45,12 @@ def get_crime_iterator(where_clause, args=None, cur=None):
   return cur 
 
 
-def crime_by_beat_and_date(beat_num, date=None, cur=None):
+def crime_by_beat_and_date(beat_num, date=None, 
+  violent=None, index=None, cur=None):
   '''Fetch all crimes from a given beat number, and a given
   date or dates.  Return a list of rows.
+  If violent/index is None, don't select based on those.
+  If True or False, then do.
   beat_num can be either a string ('0123') or an integer (123).
   date can be either a string ('1/31/2001') or a datetime.date.'''
 
@@ -58,9 +61,17 @@ def crime_by_beat_and_date(beat_num, date=None, cur=None):
   if type(date) == type(datetime.date(2001,1,31)): 
     date = '%d/%d/%d' % (date.month,date.day,date.year)
 
-  return get_crime_iterator('current_beat = %s AND date(ts) = %s', \
+  pre_query = ''
+  if violent != None:
+    if violent: pre_query = pre_query + 'isviolent=True  AND '
+    else:       pre_query = pre_query + 'isviolent=False AND '
+  if index != None:
+    if index:   pre_query = pre_query + 'isindex=True  AND '
+    else:       pre_query = pre_query + 'isindex=False AND '
+
+  return get_crime_iterator(pre_query + 'current_beat = %s AND date(ts) = %s', \
     args=(beat_num, date), cur=cur).fetchall()
 
 ## If called directly, print an example.
 if __name__=='__main__':
-  print crime_by_beat_and_date(1914, '1/31/2001')
+  print crime_by_beat_and_date(1914, '1/31/2001', violent=True)
