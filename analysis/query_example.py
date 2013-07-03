@@ -24,8 +24,8 @@ out = cur.fetchall()
 for tract, pop, count in sorted(out, key = lambda i: i[2]/i[1] if i[1]!=0 else None):
   print '%12d %8.3f' % (tract, count/pop if pop!=0 else 0)
 
-SELECT j.neighborhood, n.geo, j.ct, j.ct/ST_Area(n.geo) FROM
-  (SELECT n.pri_neigh neighborhood, count(*) ct FROM
-   neighborhoods n JOIN crimes c ON ST_Contains(n.geom, c.geo)
-   WHERE c.year=2012 AND c.geo IS NOT NULL) j JOIN 
-   neighborhoods n ON j.neighborhood=n.neighborhood;
+#SELECT j.neighborhood, n.geo, j.ct, j.ct/ST_Area(n.geo) FROM
+#  (SELECT n.pri_neigh neighborhood, count(*) ct FROM
+#   neighborhoods n JOIN crimes c ON ST_Contains(n.geom, c.geo)
+#   WHERE c.year=2012 AND c.geo IS NOT NULL) j JOIN 
+#   neighborhoods n ON j.neighborhood=n.neighborhood;
