@@ -12,4 +12,5 @@ $PSQL create_311_tables.sql
 $PSQL create_censustract_table.sql
 $PSQL create_iucr_table.sql
 $PSQL create_weather_table.sql
+$PSQL create_climate_table.sql
 $PSQL supplement_crime_table.sql
