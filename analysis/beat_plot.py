@@ -40,12 +40,37 @@ if __name__=='__main__':
   response = cur.fetchall()
 
   # Unpack them...
+  dates_beat         = np.array([i[0] for i in response])
+  violentcrimes_beat = np.array([i[1] for i in response])
+
+  select_sql = 'SELECT g::date date, COALESCE(c.count,0) ct FROM '+\
+               '(SELECT ts::date date, count(*) FROM '+\
+               ' crime.crimes WHERE '+\
+               ' isviolent=True GROUP BY ts::date) c '+\
+               'RIGHT JOIN '+\
+               'generate_series(%s, %s, interval %s) g '+\
+               'ON g::date=c.date '+\
+               'ORDER BY g::date'
+  cur.execute(select_sql, ('2001-01-01', '2013-01-30', '1 day'))
+
+  # Get all the rows in the response
+  response = cur.fetchall()
+
+  # Unpack them...
   dates         = np.array([i[0] for i in response])
   violentcrimes = np.array([i[1] for i in response])
 
   # And plot the smoothed results.
-  py.plot(dates[:-30],smooth(violentcrimes,30)[:-30])
+  smoothed_violentcrimes_beat = smooth(violentcrimes_beat,30)
+
+  py.plot(dates[:-30],\
+    violentcrimes[:-30]/float(np.mean(violentcrimes[0:100])),\
+    'b-')
+  py.plot(dates[:-30],\
+    smoothed_violentcrimes_beat[:-30]/np.mean(smoothed_violentcrimes_beat[0:100]),\
+    'r-')
   py.xlabel('Date')
   py.ylabel('Violent crimes')
-  py.title('Beat '+sys.argv[1])
+  py.title('Violent crimes per day, normalized to January 2001')
+  py.legend(['Citywide','Beat '+sys.argv[1]])
   py.savefig('violentcrimes_'+sys.argv[1]+'.png')
