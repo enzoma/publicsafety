@@ -51,7 +51,6 @@ def auto_type_cast(d):
     if isinstance(d, collections.Iterable):
       # If we're passed a list, cast each list element.
       return [auto_type_cast(i) for i in d]
-    if not isinstance(d,str): 
       # If we're passed any scalar other than a string, then just return it.
       return d
 
