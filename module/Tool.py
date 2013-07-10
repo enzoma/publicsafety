@@ -6,6 +6,7 @@ import csv
 import collections
 import time, datetime
 import psycopg2
+import matplotlib as mp
 
 # Allow users to input csv files
 # Data prereqs:
@@ -51,9 +52,10 @@ def auto_type_cast(d):
     if isinstance(d, collections.Iterable):
       # If we're passed a list, cast each list element.
       return [auto_type_cast(i) for i in d]
+    else:
       # If we're passed any scalar other than a string, then just return it.
       return d
-
+  
   # OK, we're dealing with a string.
   # First check for timestamp.
   # The data portal uses this:
@@ -93,7 +95,7 @@ def load_data_from_csv(file_name):
     csvreader = csv.reader(f)
     # The first line should be a header.
     header = csvreader.next()
-
+    
     # Initialize the data dictionary.
     # To make the header easier to use, make a hash
     # between column number and column name.
@@ -101,14 +103,14 @@ def load_data_from_csv(file_name):
     for columnnum, columnname in enumerate(header):
       columns[columnnum] = columnname.lower()
       data[columnname.lower()]=[]
-
+      
     # Loop over each row in the CSV file and fill the dictionary.
     for row in csvreader:
       for key, value in enumerate(row):
         data[columns[key]].append(auto_type_cast(value))
-
+        
   data = lists_to_arrays(data)
-
+  
   # Awesome. Return the result.
   return data
 
@@ -167,11 +169,11 @@ def normalize_space_time_columns(data):
   # Now make sure we have x and y.
   if 'x' not in data.keys() and 'y' not in data.keys():
     # If not, check for lat/long.
-
+    
     if 'lat' in data.keys(): data['latitude']=data['lat']
     if 'lon' in data.keys(): data['longitude']=data['lon']
     if 'long' in data.keys(): data['longitude']=data['long']
-
+    
     # OK, we have lat/long, so let's transform to X and Y.
     if 'latitude' in data.keys() \
       and 'longitude' in data.keys():
@@ -185,7 +187,7 @@ def normalize_space_time_columns(data):
                              "+x_0=300000.0000000001 +y_0=0 +ellps=GRS80 "+\
                              "+towgs84=0,0,0,0,0,0,0 +units=us-ft +no_defs")
       ct=osr.CoordinateTransformation(srcSR,destSR)
-
+      
       data['x'] = np.zeros(np.size(data['latitude']))
       data['y'] = np.zeros(np.size(data['latitude']))
       for i in range(np.size(data(['latitude']))):
@@ -199,7 +201,12 @@ def normalize_space_time_columns(data):
 
    
 ###############################################################################
-  
+
+
+###############################################################################
+# Aggregate Data Levels
+###############################################################################
+#------Only when user provides a csv, otherwise the person should make the select query aggregate-----
 # Obtain from user aggregation level of interest
 # We can aggregate based on time intervals of interest,
 # based on spatial boundaries, or based on features.
@@ -207,14 +214,39 @@ def normalize_space_time_columns(data):
 # based on user-obtained aggregation levels.
 
 
+#aggregate_time(time interval))
+#aggregate_space()
+  #shape_file_input
+  #points in a coordinate system
+    #Lat Long
+    #Other system TOm used
+#aggregate_label()
+  #special case is when the space poperty is labled (e.g. districts, wards, zipcode, etc)
+def aggregate_some_stuff (data):
+  
+
+###############################################################################
+
+
+
+###############################################################################
+# Exploratory Data Analysis
+###############################################################################
 # Perform some exploratory data analysis. 
 # Exploratory functions
+# e) basic univariate visualizations
+  # for any (or all) columns of data, produce a chart (histogram, bar plot, density, etc)
+
+def univariate_visualization(data, column_keys_of_interest):
+  
+
+
 # a) clustering labeled data in time 
 # b) proportions of labeled data in user-defined areas
 # c) in vs out
 # d) in vs baseline 
-# e) basic univariate visualizations
 
+###############################################################################
 
 
 
