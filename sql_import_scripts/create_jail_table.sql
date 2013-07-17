@@ -30,3 +30,6 @@ ALTER TABLE ONLY jail.inmates
   ADD CONSTRAINT jail_unique UNIQUE(id);
 
 \copy jail.inmates (inmate_name, birth_date, booking_date, address1, address2, city, state, country, release_date, charge_code, charge_desc, current_bond) FROM '/mnt/data1/CPD/jail/JailData1.csv' CSV HEADER
+
+ALTER TABLE jail.inmates ADD COLUMN days_of_stay INTEGER;
+UPDATE TABLE jail.inmates SET days_of_stay=extract(day FROM release_date-booking_date) WHERE release_date is not null AND booking_date is not null;
