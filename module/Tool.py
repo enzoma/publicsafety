@@ -141,7 +141,7 @@ def load_data_from_db(select_string, db_name, db_user_name, db_host, \
   # Loop through the columns and read them into the dictionary.
   for row in cur:
     for key, value in enumerate(row):
-     if type(value) == datetime.datetime: 
+     if type(value) == datetime.datetime or type(value) == datetime.date: 
        # Special case for timestamp columns.
        # Postgres returns a datetime, but we use timetuples for RPy.
        data[columns[key]].append(value.timetuple())
@@ -223,6 +223,7 @@ def normalize_space_time_columns(data):
 #aggregate_label()
   #special case is when the space poperty is labled (e.g. districts, wards, zipcode, etc)
 def aggregate_some_stuff (data):
+  pass
   
 
 ###############################################################################
@@ -238,6 +239,7 @@ def aggregate_some_stuff (data):
   # for any (or all) columns of data, produce a chart (histogram, bar plot, density, etc)
 
 def univariate_visualization(data, column_keys_of_interest):
+  pass
   
 
 
