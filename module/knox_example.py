@@ -20,7 +20,7 @@ x2, y2, t2 = d2['x'], d2['y'], d2['casedate']
 
 # Run the Knox test with characteristic distance = 1 mile
 # and characteristic time = 30 days
-X,randdist = knox.knox(x1,y1,t1,x2,y2,t2,5280.0/1.0,30.0)
+X,randdist = knox.knox(x1,y1,t1,x2,y2,t2,5280.0/8.0,7.0)
 
 # Save the output to a pickle file
 with open('knox_example.pkl','wb') as f:
