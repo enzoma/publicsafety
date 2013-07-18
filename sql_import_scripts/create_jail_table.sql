@@ -33,3 +33,4 @@ ALTER TABLE ONLY jail.inmates
 
 ALTER TABLE jail.inmates ADD COLUMN days_of_stay INTEGER;
 UPDATE TABLE jail.inmates SET days_of_stay=extract(day FROM release_date-booking_date) WHERE release_date is not null AND booking_date is not null;
+UPDATE jail.inmates SET birth_date = birth_date - interval '100 years' WHERE extract(year FROM birth_date) > 2013;
