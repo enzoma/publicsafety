@@ -1,0 +1,73 @@
+#How many total charges were filed
+SELECT COUNT(*)
+FROM jail.inmates;
+ count  
+--------
+ 402960
+(1 row)
+
+#How many times a charge was attributed to someone who got out immediately
+SELECT COUNT(*)
+FROM jail.inmates
+WHERE days_of_stay = 0;
+ count 
+-------
+ 25053
+
+#How many times a charge was attributed to someone who is still in jail
+SELECT COUNT(*)
+FROM jail.inmates
+WHERE days_of_stay IS NULL;
+
+or 
+
+SELECT COUNT(*)
+FROM jail.inmates
+WHERE release_date IS NULL;
+ count 
+-------
+ 10708
+
+# Which charges are attributes to someone whose release data is earlier than their booking date (which is an error). Since it's only 9 people we decided to get rid of them
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE days_of_stay < 0;
+
+#Which charges are attributes to someone whose birth dates are odd
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE age_in_years_at_arrest < 0;
+
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE age_in_years_at_arrest >75;
+
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE age_in_years_at_arrest < 0;
+
+
+# How many length of stay values are Nan (i.e. NULL -> still in Jail)
+np.where(np.isnan(stay))[0].size
+
+df.loc[np.where(np.isnan(stay))[0],:]
+
+
+# How many length of stay values are negative
+np.where(stay < 0)[0].size
+
+#Bool array indicating nega
+bad_indices s= np.logical_or (stay < 0, np.isnan(stay))
+np.where(np.logical_not(np.logical_or (stay < 0, np.isnan(stay))))[0].size
+df.loc[np.where(np.logical_and (stay < 0, np.logical_not(np.isnan(stay))))[0],:]
+
+
+np.where(np.isnan(df.current_bond))
+
+df[1,:]
+
+distribution of length of stay in general
+conditioned on bond == 0
+conditioned legnth of stay > 7 days or not
+conditioned on certian chragees
+
