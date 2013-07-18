@@ -1,0 +1,46 @@
+#How many total charges were filed
+SELECT COUNT(*)
+FROM jail.inmates;
+ count  
+--------
+ 402960
+(1 row)
+
+#How many times a charge was attributed to someone who got out immediately
+SELECT COUNT(*)
+FROM jail.inmates
+WHERE days_of_stay = 0;
+ count 
+-------
+ 25053
+
+#How many times a charge was attributed to someone who is still in jail
+SELECT COUNT(*)
+FROM jail.inmates
+WHERE days_of_stay IS NULL;
+
+or 
+
+SELECT COUNT(*)
+FROM jail.inmates
+WHERE release_date IS NULL;
+ count 
+-------
+ 10708
+
+# Which charges are attributed to someone whose release data is earlier than their booking date (which is an error). Since it's only 9 records we decided to not include them in analysis.
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE days_of_stay < 0;
+
+#Which charges are attributed to someone whose birth dates are odd
+
+#Birthdays in the future (we fixed this because it was an error in script to put data in table)
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE age_in_years_at_arrest < 0;
+
+#People over 100's years old (This is interesting because every record corresponds a person given a birth_date = 1-1-1901 and all were booked on 10-7-2009. Maybe whoever was responsible for inputing data at this time didn't input the birth dates, so this was the default date. Their id, which corresponds to order they were processed, are also all close which supports this theory)
+SELECT inmate_name, booking_date, release_date, days_of_stay, birth_date, age_in_years_at_arrest
+FROM jail.inmates
+WHERE age_in_years_at_arrest > 100;
