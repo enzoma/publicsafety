@@ -6,7 +6,7 @@ class Spatial_Temporal_Test:
   __metaclass__ = ABCMeta
   
   #TURN THIS INTO A DECORATOR
-  def preprocess_and_normalize(x1, y1, t1, x2, y2, t2, dist_scale, time_scale_days):
+  def preprocess_and_normalize(self, x1, y1, t1, x2, y2, t2, dist_scale, time_scale_days):
      # First get rid of points where the spatial location is undefined.
      wh1 = np.where(~np.isnan(x1))
      wh2 = np.where(~np.isnan(x2))
@@ -34,6 +34,6 @@ class Spatial_Temporal_Test:
 
   #HAVE PREPROCESS AND NORMALIZE DECORATE THIS METHOD
   @abstractmethod
-  def compute_test_statistic(x1, y1, t1, x2, y2, t2, dist_scale, time_scale_days, nrand=1000):
+  def compute_test_statistic(self, x1, y1, t1, x2, y2, t2, dist_scale, time_scale_days, verbose=True, nrand=1000):
     pass
   
