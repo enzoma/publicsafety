@@ -3,6 +3,7 @@
 from abc import ABCMeta, abstractmethod
 import copy, time
 import numpy as np
+from ranking import Ranking
 
 class Spatial_Temporal_Test:
   __metaclass__ = ABCMeta
@@ -16,13 +17,15 @@ class Spatial_Temporal_Test:
     if self.N1 < self.N2:
       self.x1, self.y1, self.t1 = x1, y1, t1
       self.x2, self.y2, self.t2 = x2, y2, t2
+      self.switched_processes = False
     else:
       self.x1, self.y1, self.t1 = x2, y2, t2
       self.x2, self.y2, self.t2 = x1, y1, t1
+      self.switched_processes = True
 
   @classmethod
   def preprocess_and_normalize_decorator(self, test_statistics_function):
-    def toR(self, dist_scale, time_scale_days, verbose=True, nrand=1000):
+    def toR(self, dist_scale, time_scale_days, t1_as_leading_indicator=False, verbose=True, nrand=1000):
       wh1 = np.where(~np.isnan(self.x1))
       wh2 = np.where(~np.isnan(self.x2))
 
@@ -35,11 +38,35 @@ class Spatial_Temporal_Test:
       self.t2 = np.array([time.mktime(time.struct_time(i)) for i in self.t2])
       time_scale = time_scale_days * 24 * 3600
 
-      return test_statistics_function(self, dist_scale, time_scale, verbose, nrand)
+      return test_statistics_function(self, dist_scale, time_scale, t1_as_leading_indicator, verbose, nrand)
    
     return toR
 
   #DECORATE THIS METHOD WITH THE  PROCESS_AND_NORMALIZE DECORATER
   @abstractmethod
-  def compute_test_statistic(self, dist_scale, time_scale_days, verbose=True, nrand=1000):
+  def compute_test_statistic(self, dist_scale, time_scale_days, t1_as_leading_indicator=False, verbose=True, nrand=1000):
     pass
+
+  def compute_p_value(self, test_statistic, null_distribution):
+    dist = np.append(null_distribution, test_statistic)
+    dist.sort()
+    r = Ranking(dist[::-1])
+    return r.rank(test_statistic)/float(len(dist))
+
+  def get_time_proximate_points(self, time_scale, t1_point, t2_indices=None, t1_as_leading_indicator=False):
+    '''
+    Determine which points to consider for being close in time.
+    Typically will correspond to the points that are already
+    determinded to be close in space
+    '''
+#    print len(t2_indices) 
+    t2_indices = range(len(self.t2)) if t2_indices != None else t2_indices
+    if t1_as_leading_indicator:
+      if self.switched_processes:
+        points = np.where((self.t2[t2_indices] < t1_point) & (-self.t2[t2_indices]+t1_point <= time_scale))[0]
+      else:
+        points = np.where((self.t2[t2_indices] > t1_point) & (self.t2[t2_indices]-t1_point <= time_scale))[0]
+    else:
+        points = np.where((np.abs(self.t2[t2_indices]-t1_point) <= time_scale))[0]
+
+    return points
