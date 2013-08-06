@@ -1,0 +1,75 @@
+Tile Mill CartoCSS:
+#v2_norm_cluster {
+  line-color:#4a5c45;
+  line-width:0.75;
+  polygon-opacity:1;
+  polygon-fill:#ae8;
+  [clusternum=0] {polygon-fill:#BEAED4;}
+  [clusternum=1] {polygon-fill:#7FC97F;}
+  [clusternum=2] {polygon-fill:#FDC086;}
+  [clusternum=3] {polygon-fill:#FFE303;}
+  [clusternum=4] {polygon-fill:#386CB0;}
+  [clusternum=5] {polygon-fill:#F0027F;}
+  [clusternum=6] {polygon-fill:#C76E06;}
+}
+
+Tile Mill Legend:
+<div class='my-legend'>
+<div class='legend-title'>Chicago Crime: K-Means Clustering</div>
+<div class='legend-scale'>
+  <ul class='legend-labels'>
+    <li><span style='background:#BEAED4;'></span> Battery and Criminal Damage </li>
+    <li><span style='background:#7FC97F;'></span>Narcotics and Gambling</li>
+    <li><span style='background:#FDC086;'></span>Burglary and Criminal Damage</li>
+    <li><span style='background:#FFE303;'></span>Public Indecency and Theft </li>
+    <li><span style='background:#386CB0;'></span>Liquor Law Violation </li>
+    <li><span style='background:#F0027F;'></span>Criminal Sexual Assault</li>
+    <li><span style='background:#C76E06;'></span>Homicide and Battery</li>
+  </ul>
+</div>
+<div class='legend-source'>Source: <a href="#link to source">Chicago Crime Portal Data</a></div>
+</div>
+
+<style type='text/css'>
+  .wax-legends {
+    top:   10px!important;
+    right: 10px !important;
+  }
+  .wax-legend .legend-title {
+    text-align: left;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 90%;
+    }
+  .wax-legend .legend-scale ul {
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    float: left;One
+    list-style: none;
+    }
+  .wax-legend .legend-scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+    }
+  .wax-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+    }
+  .wax-legend .legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+    }
+  .wax-legend a {
+    color: #777;
+    }
+</style>
