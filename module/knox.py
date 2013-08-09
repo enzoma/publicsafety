@@ -40,11 +40,11 @@ class Knox(Spatial_Temporal_Test):
     for d1i in range(self.N1):
       # Print out a handy status message in case the number of points
       # is extremely large and you're bored.
-      if verbose and (d1i % 10 == 0): print(d1i, self.N1)
+      if verbose and (d1i % 1000 == 0): print(d1i, self.N1)
       # Compute the number of space-proximate points in (x2,y2)
       close_in_space = np.where(((self.x2-self.x1[d1i])**2 + (self.y2-self.y1[d1i])**2 \
                             <= dist_scale_feet**2))[0]
-      print len(close_in_space)
+
       # Now compute the time-proximate points from t2 for real data.
       #TODO: Need to determine if they asked for a one-sided vs two sided test (and if had to switch t1 and t2)
       close_in_space_time = self.get_time_proximate_points(time_scale_days, self.t1[d1i], close_in_space, t1_as_leading_indicator)

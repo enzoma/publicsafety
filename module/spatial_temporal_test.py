@@ -59,8 +59,8 @@ class Spatial_Temporal_Test:
     Typically will correspond to the points that are already
     determinded to be close in space
     '''
-#    print len(t2_indices) 
-    t2_indices = range(len(self.t2)) if t2_indices != None else t2_indices
+
+    t2_indices = range(len(self.t2)) if t2_indices == None else t2_indices
     if t1_as_leading_indicator:
       if self.switched_processes:
         points = np.where((self.t2[t2_indices] < t1_point) & (-self.t2[t2_indices]+t1_point <= time_scale))[0]
@@ -68,5 +68,7 @@ class Spatial_Temporal_Test:
         points = np.where((self.t2[t2_indices] > t1_point) & (self.t2[t2_indices]-t1_point <= time_scale))[0]
     else:
         points = np.where((np.abs(self.t2[t2_indices]-t1_point) <= time_scale))[0]
+
+    #print str(t1_point) + ": " + str(points)
 
     return points
