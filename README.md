@@ -1,6 +1,6 @@
 DSSG: Crime and Incarceration
 ===
-This is a (Data Science for Social Good)["http://www.dssg.io/"] project to develop a series of methods to detect spatio-temporal correlations between point-processes and to model the relationships between them. This project is specifically concerned with criminal activity and incarceration and release processes in the city of Chicago. Our driving question is whether we can use the release of jail inmates to predict changes in crime in Chicago. 
+This is a [Data Science for Social Good]("http://www.dssg.io/") project to develop a series of methods to detect spatio-temporal correlations between point-processes and to model the relationships between them. This project is specifically concerned with criminal activity and incarceration and release processes in the city of Chicago. Our driving question is whether we can use the release of jail inmates to predict changes in crime in Chicago. 
 
 The problem: 
 ===
