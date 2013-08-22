@@ -24,12 +24,36 @@ The project:
 ===
 There are three primary components to the project:
 
-### <"Exploratory Data Analysis of Public Crime Data">
-### <"Implementation of Spatiotemporal Correlation Statistics">
-### <"Predictive Model">
+### "Exploratory Data Analysis of Public Crime Data"
+
+Before we were able to begin predicting crime levels accross the city, we needed to gain an understanding of standard, baseline
+levels of crime.  To do so, we conducted exploratory data anlaysis on data from the Chicago Data Portal.  In total, we examined about 
+5.25 million crime reports spanning January 2001 through mid-2013.  For every reported criminal incident, 
+these data document the incident’s category, location, date, time, and whether or not an arrest was made (more on the 
+data below).  Given past knowledge about the crime in Chicago, we concentrated on spatial and temporal patterns.
+
+
+### "Implementation of Spatiotemporal Correlation Statistics"
+
+Once we began to understand historical trends in Chicago crime, we obtained data from the Cook County Jail on inmate
+releases (more below).  Because the jail wants to free up space by releasing certain inmates, we decided to see how
+crime levels change when groups of inmates (eg, violent vs. non-violent) are released from jail.  The Knox and Mantel 
+tests were implemented, and the statistics generated from both of these test account for underying spatiotemporal trends.
+
+
+### "Predictive Model"
+After identifying significant spatiotemporal correlations, we decided to construct a predictive model to determine whether or not
+these significant variables possess any predictive capacity.  This process is in the works.  
 
 The data:
 ===
+The exploratory data analysis was conducted on the [Chicago Crime Portal Data]("https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2#column-menu").
+We restricted our analysis to data compiled through mid-2013.  For each crime report documented from the beginning of 2001 , these data contain the ID, case number, date, block, IUCR (Illinois Uniform Crime Reporting) code, type of crime (battery,
+criminal assault, burglary, battery, vehicular theft, etc.) based on the corresponding IUCR code, a more detailed description, a
+description of the incident's location (sidewalk, street, residential property, etc.), whether or not an arrest was made, whether or not
+the incident was domestic, and its specific locaiton.  
+
+The spatiotemporal metrics were calculated using the Cook County Jail Data.  
 
 License
 ===
