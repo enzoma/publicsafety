@@ -20,7 +20,7 @@ to investigate how the release of inmates precedes subsequent crime trends with 
 which groups of inmates are associated with later changes in criminal activity.  To assess the predictive capacity of these variables, a
 predictive model is in the works.
 
-The project:
+The project
 ===
 There are three primary components to the project:
 
