@@ -56,7 +56,7 @@ the incident was domestic, and its specific locaiton.
 The spatiotemporal metrics were calculated using the Cook County Jail Data.  These data include inmate's charges, self-reported
 home address, booking/release dates, and some personal identifiers.  
 
-## {{ Installation Guide }} 
+## Installation Guide
 git clone https://github.com/dssg/dssg-cpd-project
 cd dssg-cpd-project
 
@@ -94,7 +94,7 @@ wsgiref==0.1.2
 yolk==0.4.3
 ```
 
-## {{ Contributing to the Project }} 
+## Contributing to the Project
 -- Issue Tracker
 -- Email Addresses (good to use google group)
 * Tom Plagge <tplagge@gmail.com>
