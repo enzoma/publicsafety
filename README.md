@@ -95,8 +95,8 @@ yolk==0.4.3
 ```
 
 ## Contributing to the Project
-* Issue Tracker
-* Email Addresses (good to use google group)
+Issue Tracker
+Email Addresses (good to use google group)
 * Tom Plagge <tplagge@gmail.com>
 * Varoon Bashyakarla <vbashyakarla@gmail.com>
 * Ed McFowland <mcfowland@cmu.edu>
