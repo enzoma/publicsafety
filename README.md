@@ -98,7 +98,7 @@ yolk==0.4.3
 Issue Tracker
 
 
-Email Addresses (good to use google group)
+Email Addresses
 * Tom Plagge <tplagge@gmail.com>
 * Varoon Bashyakarla <vbashyakarla@gmail.com>
 * Ed McFowland <mcfowland@cmu.edu>
