@@ -45,7 +45,7 @@ tests were implemented, and the statistics generated from both of these test acc
 After identifying significant spatiotemporal correlations, we decided to construct a predictive model to determine whether or not
 these significant variables possess any predictive capacity.  This process is in the works.  
 
-The data:
+The data: Public Crime Data + Cook County Jail Data
 ===
 The exploratory data analysis was conducted on the [Chicago Crime Portal Data]("https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2#column-menu").
 We restricted our analysis to data compiled through mid-2013.  For each crime report documented from the beginning of 2001 , these data contain the ID, case number, date, block, IUCR (Illinois Uniform Crime Reporting) code, type of crime (battery,
@@ -53,20 +53,13 @@ criminal assault, burglary, battery, vehicular theft, etc.) based on the corresp
 description of the incident's location (sidewalk, street, residential property, etc.), whether or not an arrest was made, whether or not
 the incident was domestic, and its specific locaiton.  
 
-The spatiotemporal metrics were calculated using the Cook County Jail Data.  
+The spatiotemporal metrics were calculated using the Cook County Jail Data.  These data include inmate's charges, self-reported
+home address, booking/release dates, and some personal identifiers.  
 
-License
-===
-Copyright (C) 2013 Data Science for Social Good Fellowship at the University of Chicago
+## {{ Installation Guide }} 
+git clone https://github.com/dssg/dssg-cpd-project
+cd dssg-cpd-project
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Instructions
-===
 * Make sure PostgreSQL and other required software is installed, as described in the wiki.
 * Check out the git repository and add dssg-cpd-project to your PYTHONPATH:
 ```
@@ -74,25 +67,6 @@ export PYTHONPATH=$PYTHONPATH:/path/to/dssg-cpd-project
 ```
 * Run the SQL init scripts (`psql --host HOST --user USER DBNAME -f SCRIPT.sql`)
 * Start analyzing data
-
-
-Motivation
-===
-Crime persists as a serious problem in Chicago.  As of April 2013, $31.9 million of the total $38 million city
-budget to pay for overtime police had been depleted, and 2012 was a particularly deadly year with over 500 homicides.
-The CPD employs predictive spatial-temporal models and social network analysis to preempt crime but have often
-arrested inviduals with criminal history records, some of which are rather extensive.  As a result, we grew interested
-in determining whether or not crime spikes when prisoners return home upon completing their prison sentences.  
-
-This is a particularly interesting question for two primary reasons.  First, the CPD has not yet studied associations
-between arrests, prison sentences, and potential crime spikes.  Secondly, if such an association exists, this
-analysis can be used to foster dialogues between law enforcement and criminal justice efforts to refine sentences
-and incentives in order to mitigate and, ultimatley, to prevent crime.
-
-Installation
-===
-git clone https://github.com/dssg/dssg-cpd-project
-cd dssg-cpd-project
 
 Prerequisites
 ```
@@ -120,9 +94,25 @@ wsgiref==0.1.2
 yolk==0.4.3
 ```
 
-Contact Us
-===
+## {{ Contributing to the Project }} 
+-- Issue Tracker
+-- Email Addresses (good to use google group)
 * Tom Plagge <tplagge@gmail.com>
 * Varoon Bashyakarla <vbashyakarla@gmail.com>
 * Ed McFowland <mcfowland@cmu.edu>
 * Paul Meinshausen <meinshap@gmail.com>
+
+
+License
+===
+Copyright (C) 2013 Data Science for Social Good Fellowship at the University of Chicago
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
