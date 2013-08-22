@@ -24,6 +24,10 @@ The project:
 ===
 There are three primary components to the project:
 
+### <"Exploratory Data Analysis of Public Crime Data">
+### <"Implementation of Spatiotemporal Correlation Statistics">
+### <"Predictive Model">
+
 The data:
 ===
 
