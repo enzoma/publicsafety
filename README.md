@@ -11,7 +11,7 @@ The jail can relieve pressure on its resources by discharging certain inmates, b
 
 The solution: 
 ===
-One way to determine which (groups of) inmates to release is to think about how the release of these inmates will impact crime in the city.
+One way to determine which (groups of) inmates to release is to think aibout how the release of these inmates will impact crime in the city.
 To do so strategically, the trick is to account for all of the city's underlying spatial and temporal trends.  Criminologists know that, in Chicago in particular, 
 there are some particularly crime-ridden neighborhoods with much higher levels of violence than those of other neighborhoods.  And 
 we also know that crime varies accross time; crime spikes on Fridays and during the summer because the weekend and warm weather attract
@@ -96,6 +96,8 @@ yolk==0.4.3
 
 ## Contributing to the Project
 Issue Tracker
+
+
 Email Addresses (good to use google group)
 * Tom Plagge <tplagge@gmail.com>
 * Varoon Bashyakarla <vbashyakarla@gmail.com>
