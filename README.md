@@ -4,7 +4,7 @@ This is a [Data Science for Social Good]("http://www.dssg.io/") project to asses
 The problem: jail overcrowding
 ===
 Among the many [problems]("http://www.nytimes.com/2008/07/18/us/18cook.html?em&ex=1216526400&en=0fd5af153b22e24b&ei=5087%0A&_r=0") facing the 
-Cook County Jail, the overcrowding problem is perhaps the most pressing; Cook County Jail has a limited supply of resources but very little control over its demand.
+Cook County Jail, the overcrowding problem is perhaps the most pressing; Copreok County Jail has a limited supply of resources but very little control over its demand.
 The jail has no control over the inflow of inmates from police arrests, and its ability to control the outflow of inmates is rather limited.
 The main way in which CCJ frees up space is through a combination of electronic monitoring (by releasing certain inmates with ankle bracelets, for example) and probation.
 The jail can relieve pressure on its resources by discharging certain inmates, but how do we know which inmates to release?
@@ -94,7 +94,8 @@ wsgiref==0.1.2
 yolk==0.4.3
 ```
 
-# Here's how the directories are structured: [FILL IN]
+Directory Structure
+[FILL IN]
 
 ## Contributing to the Project
 If you're interested in getting involved, please check out the [issue tracker]("https://github.com/dssg/dssg-cpd-project/issues?state=open")
