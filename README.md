@@ -1,10 +1,13 @@
 DSSG: Crime and Incarceration
 ===
-This is a [Data Science for Social Good]("http://www.dssg.io/") project to develop a series of methods to detect spatio-temporal correlations between point-processes and to model the relationships between them. This project is specifically concerned with criminal activity and incarceration and release processes in the city of Chicago. Our driving question is whether we can use the release of jail inmates to predict changes in crime in Chicago. 
-
+This is a [Data Science for Social Good]("http://www.dssg.io/") project to assess the burden groups of jail inmates pose to Chicago's crime problem in order to help the Cook County Jail to relieve its overcrowding problem and to explore predictors of violent crime.
 The problem: 
 ===
-Current police analyses primarily rely on crime report data collected by the police department itself. Predictive analysis could be improved by incorporating additional data, especially data from other government organizations within the criminal justice sector. Our goal is to see whether jail releases and 311 complaints are leading indicators of violent crime. These new predictors will be used by the Chicago Police Department to improve their models and to help officers get ahead of violence.
+Among the many [problems]("http://www.nytimes.com/2008/07/18/us/18cook.html?em&ex=1216526400&en=0fd5af153b22e24b&ei=5087%0A&_r=0") facing the 
+Cook County Jail, the overcrowding problem is perhaps the most pressing; Cook County Jail has a limited supply of resources but very little control over its demand.
+The jail has no control over the inflow of inmates from police arrests, and its ability to control the outflow of inmates is rather limited.
+The main way in which CCJ frees up space is through a combination of electronic monitoring (by releasing certain inmates with ankle bracelets, for example) and probation.
+The jail can relieve pressure on its resources by discharging certain inmates, but how do we know which inmates to release?
 
 The solution: 
 ===
