@@ -94,6 +94,8 @@ wsgiref==0.1.2
 yolk==0.4.3
 ```
 
+# Here's how the directories are structured: [FILL IN]
+
 ## Contributing to the Project
 If you're interested in getting involved, please check out the [issue tracker]("https://github.com/dssg/dssg-cpd-project/issues?state=open")
 
