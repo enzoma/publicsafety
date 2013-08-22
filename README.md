@@ -24,7 +24,7 @@ The project:
 ===
 There are three primary components to the project:
 
-### "Exploratory Data Analysis of Public Crime Data"
+### Exploratory Data Analysis of Public Crime Data
 
 Before we were able to begin predicting crime levels accross the city, we needed to gain an understanding of standard, baseline
 levels of crime.  To do so, we conducted exploratory data anlaysis on data from the Chicago Data Portal.  In total, we examined about 
@@ -33,7 +33,7 @@ these data document the incident’s category, location, date, time, and whether
 data below).  Given past knowledge about the crime in Chicago, we concentrated on spatial and temporal patterns.
 
 
-### "Implementation of Spatiotemporal Correlation Statistics"
+### Implementation of Spatiotemporal Correlation Statistics
 
 Once we began to understand historical trends in Chicago crime, we obtained data from the Cook County Jail on inmate
 releases (more below).  Because the jail wants to free up space by releasing certain inmates, we decided to see how
@@ -41,7 +41,7 @@ crime levels change when groups of inmates (eg, violent vs. non-violent) are rel
 tests were implemented, and the statistics generated from both of these test account for underying spatiotemporal trends.
 
 
-### "Predictive Model"
+### Predictive Model
 After identifying significant spatiotemporal correlations, we decided to construct a predictive model to determine whether or not
 these significant variables possess any predictive capacity.  This process is in the works.  
 
