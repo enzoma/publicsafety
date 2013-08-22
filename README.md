@@ -95,10 +95,9 @@ yolk==0.4.3
 ```
 
 ## Contributing to the Project
-Issue Tracker
+If you're interested in getting involved, please check out the [issue tracker]("https://github.com/dssg/dssg-cpd-project/issues?state=open")
 
-
-Email Addresses
+To get in touch, please email a team member.  
 * Tom Plagge <tplagge@gmail.com>
 * Varoon Bashyakarla <vbashyakarla@gmail.com>
 * Ed McFowland <mcfowland@cmu.edu>
