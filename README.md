@@ -11,9 +11,18 @@ The jail can relieve pressure on its resources by discharging certain inmates, b
 
 The solution: 
 ===
+One way to determine which (groups of) inmates to release is to think about how the release of these inmates will impact crime in the city.
+To do so strategically, the trick is to account for all of the city's underlying spatial and temporal trends.  Criminologists know that, in Chicago in particular, 
+there are some particularly crime-ridden neighborhoods with much higher levels of violence than those of other neighborhoods.  And 
+we also know that crime varies accross time; crime spikes on Fridays and during the summer because the weekend and warm weather attract
+people outside and to the streets, where they are potential criminal targets.  Thus, we implemented a collection of spatiotemporal tests
+to investigate how the release of inmates precedes subsequent crime trends with respect to both space and time.  This allowed us to identify
+which groups of inmates are associated with later changes in criminal activity.  To assess the predictive capacity of these variables, a
+predictive model is in the works.
 
 The project:
 ===
+There are three primary components to the project:
 
 The data:
 ===
