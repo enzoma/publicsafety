@@ -25,7 +25,7 @@ class Spatial_Temporal_Test:
 
   @classmethod
   def preprocess_and_normalize_decorator(self, test_statistics_function):
-    def toR(self, dist_scale, time_scale_days, t1_as_leading_indicator=False, verbose=True, nrand=1000):
+    def toR(self, t1_as_leading_indicator=False, dist_scale=None, time_scale_days=None, verbose=True, nrand=1000):
       wh1 = np.where(~np.isnan(self.x1))
       wh2 = np.where(~np.isnan(self.x2))
 
@@ -36,15 +36,15 @@ class Spatial_Temporal_Test:
       # Now compute the times in seconds for easy math. 
       self.t1 = np.array([time.mktime(time.struct_time(i)) for i in self.t1])
       self.t2 = np.array([time.mktime(time.struct_time(i)) for i in self.t2])
-      time_scale = time_scale_days * 24 * 3600
+      time_scale_days = time_scale_days if time_scale_days == None else time_scale_days * 24 * 3600
 
-      return test_statistics_function(self, dist_scale, time_scale, t1_as_leading_indicator, verbose, nrand)
+      return test_statistics_function(self, t1_as_leading_indicator, dist_scale, time_scale_days, verbose, nrand)
    
     return toR
 
   #DECORATE THIS METHOD WITH THE  PROCESS_AND_NORMALIZE DECORATER
   @abstractmethod
-  def compute_test_statistic(self, dist_scale, time_scale_days, t1_as_leading_indicator=False, verbose=True, nrand=1000):
+  def compute_test_statistic(self, t1_as_leading_indicator=False, dist_scale=None, time_scale_days=None, verbose=True, nrand=1000):
     pass
 
   def compute_p_value(self, test_statistic, null_distribution):
@@ -53,7 +53,7 @@ class Spatial_Temporal_Test:
     r = Ranking(dist[::-1])
     return r.rank(test_statistic)/float(len(dist))
 
-  def get_time_proximate_points(self, time_scale, t1_point, t2_indices=None, t1_as_leading_indicator=False):
+  def get_time_proximate_points(self, t1_point, time_scale_days=None, t1_as_leading_indicator=False, t2_indices=None):
     '''
     Determine which points to consider for being close in time.
     Typically will correspond to the points that are already
@@ -63,11 +63,13 @@ class Spatial_Temporal_Test:
     t2_indices = range(len(self.t2)) if t2_indices == None else t2_indices
     if t1_as_leading_indicator:
       if self.switched_processes:
-        points = np.where((self.t2[t2_indices] < t1_point) & (-self.t2[t2_indices]+t1_point <= time_scale))[0]
+        close_in_time = True if time_scale_days == None else -self.t2[t2_indices]+t1_point <= time_scale_days
+        points = np.where((self.t2[t2_indices] < t1_point) & close_in_time)[0]
       else:
-        points = np.where((self.t2[t2_indices] > t1_point) & (self.t2[t2_indices]-t1_point <= time_scale))[0]
+        close_in_time = True if time_scale_days == None else self.t2[t2_indices]-t1_point <= time_scale_days
+        points = np.where((self.t2[t2_indices] > t1_point) & close_in_time)[0]
     else:
-        points = np.where((np.abs(self.t2[t2_indices]-t1_point) <= time_scale))[0]
+        points = self.t2[t2_indices] if time_scale_days == None else np.where((np.abs(self.t2[t2_indices]-t1_point) <= time_scale_days))[0]
 
     #print str(t1_point) + ": " + str(points)
 
