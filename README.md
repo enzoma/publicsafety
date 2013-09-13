@@ -1,8 +1,8 @@
 DSSG: Public Safety
 ===
 This is a [Data Science for Social Good]("http://www.dssg.io/") project to assess the correlation of spatio-temporal
-point processes with violent crime. This code was used in projects with the Chicago Police Department and the Cook
-County Sheriff's Office. Some of the point processes we explored included jail releases and 311 complaints.
+point processes with violent crime. This code was used in projects with the Chicago Police Department and 
+the Cook County Sheriff's Office. Some of the point processes we explored included jail releases and 311 complaints.
 ===
 
 The problem
