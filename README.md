@@ -1,18 +1,23 @@
-DSSG: Crime and Incarceration
+DSSG: Public Safety
 ===
-This is a [Data Science for Social Good]("http://www.dssg.io/") project to assess the burden groups of jail inmates pose to Chicago's crime problem in order to help the Cook County Jail to relieve its overcrowding problem and to explore predictors of violent crime.
-The problem: jail overcrowding
+This is a [Data Science for Social Good]("http://www.dssg.io/") project to assess the correlation of spatio-temporal
+point processes with violent crime. This code was used in projects with the Chicago Police Department and the Cook
+County Sheriff's Office. Some of the point processes we explored included jail releases and 311 complaints.
 ===
-Among the many [problems]("http://www.nytimes.com/2008/07/18/us/18cook.html?em&ex=1216526400&en=0fd5af153b22e24b&ei=5087%0A&_r=0") facing the 
-Cook County Jail, the overcrowding problem is perhaps the most pressing; Copreok County Jail has a limited supply of resources but very little control over its demand.
-The jail has no control over the inflow of inmates from police arrests, and its ability to control the outflow of inmates is rather limited.
-The main way in which CCJ frees up space is through a combination of electronic monitoring (by releasing certain inmates with ankle bracelets, for example) and probation.
-The jail can relieve pressure on its resources by discharging certain inmates, but how do we know which inmates to release?
 
-The solution: estimate implications of inmate releases on crime
+The problem
 ===
-One way to determine which (groups of) inmates to release is to think aibout how the release of these inmates will impact crime in the city.
-To do so strategically, the trick is to account for all of the city's underlying spatial and temporal trends.  Criminologists know that, in Chicago in particular, 
+While violent crime in Chicago has broadly declined since the turn of the century, the decline has not kept pace with
+other cities such as New York and Los Angeles. As a result, both the Police Department and the Cook County Sheriff's
+Office (the agency in charge of operating the county jail) remain resource-constrained. The DSSG fellows worked on projects
+with both agencies to seek out new leading indicators of violence, with the hope of giving police officers an extra edge, and
+helping the jail identify high-risk individuals.
+
+In both cases, the methodological strategy for identifying leading indicators was the same: use violent crime reports
+from the Chicago public data portal as a proxy for violence, and seek out other point processes that are leading indicators
+of violence.
+
+Criminologists know that, in Chicago in particular, 
 there are some particularly crime-ridden neighborhoods with much higher levels of violence than those of other neighborhoods.  And 
 we also know that crime varies accross time; crime spikes on Fridays and during the summer because the weekend and warm weather attract
 people outside and to the streets, where they are potential criminal targets.  Thus, we implemented a collection of spatiotemporal tests
@@ -36,8 +41,8 @@ data below).  Given past knowledge about the crime in Chicago, we concentrated o
 ### Implementation of Spatiotemporal Correlation Statistics
 
 Once we began to understand historical trends in Chicago crime, we obtained data from the Cook County Jail on inmate
-releases (more below).  Because the jail wants to free up space by releasing certain inmates, we decided to see how
-crime levels change when groups of inmates (eg, violent vs. non-violent) are released from jail.  The Knox and Mantel 
+releases (more below).  Because the jail may be able to free up space by releasing certain inmates, we decided to see how
+crime levels change when groups of inmates (e.g., violent vs. non-violent) are released from jail.  The Knox and Mantel 
 tests were implemented, and the statistics generated from both of these test account for underying spatiotemporal trends.
 
 
@@ -57,48 +62,28 @@ The spatiotemporal metrics were calculated using the Cook County Jail Data.  The
 home address, booking/release dates, and some personal identifiers.  
 
 ### Installation Guide
-git clone https://github.com/dssg/dssg-cpd-project
-cd dssg-cpd-project
+git clone https://github.com/dssg/publicsafety
+cd publicsafety
 
 * Make sure PostgreSQL and other required software is installed, as described in the wiki.
-* Check out the git repository and add dssg-cpd-project to your PYTHONPATH:
+* Check out the git repository and add dssg/publicsafety to your PYTHONPATH:
 ```
-export PYTHONPATH=$PYTHONPATH:/path/to/dssg-cpd-project
+export PYTHONPATH=$PYTHONPATH:/path/to/dssg/publicsafety
 ```
 * Run the SQL init scripts (`psql --host HOST --user USER DBNAME -f SCRIPT.sql`)
 * Start analyzing data
 
 Prerequisites
 ```
-Git 
+Git
+PostgreSQL with PostGIS
 Python 2.7.3
 ```
 
-From requirements.txt
-```
-Django==1.5.1
-GDAL==1.9.1
-GeoAlchemy2==0.2.1
-SQLAlchemy==0.8.1
-ipython==0.13.2
-matplotlib==1.2.1
-numpy==1.7.1
-pandas==0.11.0
-psycopg2==2.5
-python-dateutil==2.1
-pytz==2013b
-scikit-learn==0.13.1
-scipy==0.12.0
-six==1.3.0
-wsgiref==0.1.2
-yolk==0.4.3
-```
-
-Directory Structure
-[FILL IN]
+See also requirements.txt.
 
 ## Contributing to the Project
-If you're interested in getting involved, please check out the [issue tracker]("https://github.com/dssg/dssg-cpd-project/issues?state=open")
+If you're interested in getting involved, please check out the [issue tracker]("https://github.com/dssg/publicsafety/issues?state=open")
 
 To get in touch, please email a team member.  
 * Tom Plagge <tplagge@gmail.com>
