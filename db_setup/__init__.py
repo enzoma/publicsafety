@@ -6,7 +6,7 @@ DB_NAME  = 'cpd'
 DB_HOST  = 'dssgpg'
 DB_PASSWORD  = None
 
-setup_filename = 'db_setup.cfg'
+setup_filename = '../db_setup.cfg'
 
 config = {}
 
