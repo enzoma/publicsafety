@@ -84,14 +84,14 @@ Python 2.7.3
 See also requirements.txt.
 
 ### Repository layout
-`analysis/`: Exploratory data analysis tools.
-`data_preparation/`: Data cleaning scripts.
-`db_setup/`: Helper module for managing database communications.
-`publicsafety/`: Spatio-temporal correlation tests.
-`sql_import_scripts/`: Scripts for loading data into the PostgreSQL database.
-`util/`: General helper functions for parsing and manipulating and using census and weather data, etc.
-`visualizations/`: Data visualizations we found useful to keep around.
-`predictive_model/`: Regression analysis for crime data. Not yet committed.
+* `analysis/`: Exploratory data analysis tools.
+* `data_preparation/`: Data cleaning scripts.
+* `db_setup/`: Helper module for managing database communications.
+* `publicsafety/`: Spatio-temporal correlation tests.
+* `sql_import_scripts/`: Scripts for loading data into the PostgreSQL database.
+* `util/`: General helper functions for parsing and manipulating and using census and weather data, etc.
+* `visualizations/`: Data visualizations we found useful to keep around.
+* `predictive_model/`: Regression analysis for crime data. Not yet committed.
 
 
 ## Contributing to the Project
