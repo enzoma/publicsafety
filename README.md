@@ -1,13 +1,13 @@
-DSSG: Public Safety
+Predictive analytics of crime
 ===
-This is a [Data Science for Social Good]("http://www.dssg.io/") project to assess the correlation of spatio-temporal
-point processes with violent crime. This code was used in projects with the Chicago Police Department and 
-the Cook County Sheriff's Office. Some of the point processes we explored included jail releases and 311 complaints.
+<a href="http://www.cookcountysheriff.com"><img src="http://dssg.io/img/partners/sheriff.png" width="200" align="right"></a>
 
-===
+Exploratory analysis and spatial correlation tests of whether jail inmate releases are associated with crime spikes in Chicago.
 
-The problem
-===
+This project is a part of the 2013 [Data Science for Social Good](http://www.dssg.io) fellowship, in partnership with the [Cook County Sheriff's Office](http://www.cookcountysheriff.com).
+
+## The problem: jail overcrowding
+
 While violent crime in Chicago has broadly declined since the turn of the century, the decline has not kept pace with
 other cities such as New York and Los Angeles. As a result, both the Police Department and the Cook County Sheriff's
 Office (the agency in charge of operating the county jail) remain resource-constrained. The DSSG fellows worked on projects
@@ -18,6 +18,8 @@ In both cases, the methodological strategy for identifying leading indicators wa
 from the Chicago public data portal as a proxy for violence, and seek out other point processes that are leading indicators
 of violence.
 
+## The solution:
+
 Criminologists know that, in Chicago in particular, 
 there are some particularly crime-ridden neighborhoods with much higher levels of violence than those of other neighborhoods.  And 
 we also know that crime varies accross time; crime spikes on Fridays and during the summer because the weekend and warm weather attract
@@ -26,8 +28,7 @@ to investigate how the release of inmates precedes subsequent crime trends with 
 which groups of inmates are associated with later changes in criminal activity.  To assess the predictive capacity of these variables, a
 predictive model is in the works.
 
-The project
-===
+## Project layout
 There are three primary components to the project:
 
 ### Exploratory Data Analysis of Public Crime Data
@@ -51,7 +52,19 @@ tests were implemented, and the statistics generated from both of these test acc
 After identifying significant spatiotemporal correlations, we decided to construct a predictive model to determine whether or not
 these significant variables possess any predictive capacity.  This process is in the works.  
 
-The data: Public Crime Data + Cook County Jail Data
+Here's where all these things live:
+* `analysis/`: Exploratory data analysis tools.
+* `data_preparation/`: Data cleaning scripts.
+* `db_setup/`: Helper module for managing database communications.
+* `publicsafety/`: Spatio-temporal correlation tests.
+* `sql_import_scripts/`: Scripts for loading data into the PostgreSQL database.
+* `util/`: General helper functions for parsing and manipulating and using census and weather data, etc.
+* `visualizations/`: Data visualizations we found useful to keep around.
+* `predictive_model/`: Regression analysis for crime data. Not yet committed.
+
+
+The data: open crime report data, jail inmate release data.
+The data: open crime report data, jail inmate release data.
 ===
 The exploratory data analysis was conducted on the [Chicago Crime Portal Data]("https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2#column-menu").
 We restricted our analysis to data compiled through mid-2013.  For each crime report documented from the beginning of 2001 , these data contain the ID, case number, date, block, IUCR (Illinois Uniform Crime Reporting) code, type of crime (battery,
@@ -82,16 +95,6 @@ Python 2.7.3
 ```
 
 See also requirements.txt.
-
-### Repository layout
-* `analysis/`: Exploratory data analysis tools.
-* `data_preparation/`: Data cleaning scripts.
-* `db_setup/`: Helper module for managing database communications.
-* `publicsafety/`: Spatio-temporal correlation tests.
-* `sql_import_scripts/`: Scripts for loading data into the PostgreSQL database.
-* `util/`: General helper functions for parsing and manipulating and using census and weather data, etc.
-* `visualizations/`: Data visualizations we found useful to keep around.
-* `predictive_model/`: Regression analysis for crime data. Not yet committed.
 
 
 ## Contributing to the Project
