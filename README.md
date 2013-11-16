@@ -18,7 +18,7 @@ In both cases, the methodological strategy for identifying leading indicators wa
 from the Chicago public data portal as a proxy for violence, and seek out other point processes that are leading indicators
 of violence.
 
-## The solution:
+## The solution: exploratory data analysis, spatial autocorrelation tests
 
 Criminologists know that, in Chicago in particular, 
 there are some particularly crime-ridden neighborhoods with much higher levels of violence than those of other neighborhoods.  And 
@@ -52,6 +52,8 @@ tests were implemented, and the statistics generated from both of these test acc
 After identifying significant spatiotemporal correlations, we decided to construct a predictive model to determine whether or not
 these significant variables possess any predictive capacity.  This process is in the works.  
 
+
+### Directory walkthrough
 Here's where all these things live:
 * `analysis/`: Exploratory data analysis tools.
 * `data_preparation/`: Data cleaning scripts.
@@ -63,9 +65,8 @@ Here's where all these things live:
 * `predictive_model/`: Regression analysis for crime data. Not yet committed.
 
 
-The data: open crime report data, jail inmate release data.
-The data: open crime report data, jail inmate release data.
-===
+##The data: open crime report data, jail inmate release data.
+
 The exploratory data analysis was conducted on the [Chicago Crime Portal Data]("https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2#column-menu").
 We restricted our analysis to data compiled through mid-2013.  For each crime report documented from the beginning of 2001 , these data contain the ID, case number, date, block, IUCR (Illinois Uniform Crime Reporting) code, type of crime (battery,
 criminal assault, burglary, battery, vehicular theft, etc.) based on the corresponding IUCR code, a more detailed description, a
@@ -100,11 +101,7 @@ See also requirements.txt.
 ## Contributing to the Project
 If you're interested in getting involved, please check out the [issue tracker]("https://github.com/dssg/publicsafety/issues?state=open")
 
-To get in touch, please email a team member.  
-* Tom Plagge <tplagge@gmail.com>
-* Varoon Bashyakarla <vbashyakarla@gmail.com>
-* Ed McFowland <mcfowland@cmu.edu>
-* Paul Meinshausen <meinshap@gmail.com>
+To get in touch, please email mentor Tom Plagge at tplagge@gmail.com.
 
 
 License
