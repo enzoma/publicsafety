@@ -1,6 +1,6 @@
 Predictive analytics of crime
 ===
-<a href="http://www.cookcountysheriff.com"><img src="http://dssg.io/img/partners/sheriff.png" width="200" align="right"></a>
+<a href="http://www.cookcountysheriff.com"><img src="http://dssg.io/img/partners/sheriff.png" width="150" align="right"></a>
 
 Exploratory analysis and spatial correlation tests of whether jail inmate releases are associated with crime spikes in Chicago.
 
@@ -18,6 +18,7 @@ In both cases, the methodological strategy for identifying leading indicators wa
 from the Chicago public data portal as a proxy for violence, and seek out other point processes that are leading indicators
 of violence.
 
+
 ## The solution: exploratory data analysis, spatial autocorrelation tests
 
 Criminologists know that, in Chicago in particular, 
@@ -27,6 +28,23 @@ people outside and to the streets, where they are potential criminal targets.  T
 to investigate how the release of inmates precedes subsequent crime trends with respect to both space and time.  This allowed us to identify
 which groups of inmates are associated with later changes in criminal activity.  To assess the predictive capacity of these variables, a
 predictive model is in the works.
+
+**[Read more about our methodology in the wiki](../../wiki/Methodology)**
+
+
+##The data: open crime report data, jail inmate release data.
+
+The exploratory data analysis was conducted on the [Chicago Crime Portal Data]("https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2#column-menu").
+We restricted our analysis to data compiled through mid-2013.  For each crime report documented from the beginning of 2001 , these data contain the ID, case number, date, block, IUCR (Illinois Uniform Crime Reporting) code, type of crime (battery,
+criminal assault, burglary, battery, vehicular theft, etc.) based on the corresponding IUCR code, a more detailed description, a
+description of the incident's location (sidewalk, street, residential property, etc.), whether or not an arrest was made, whether or not
+the incident was domestic, and its specific locaiton.  
+
+The spatiotemporal metrics were calculated using the Cook County Jail Data.  These data include inmate's charges, self-reported
+home address, booking/release dates, and some personal identifiers.  
+
+**[Read more about our data in the wiki](../../wiki/Data)**
+
 
 ## Project layout
 There are three primary components to the project:
@@ -64,17 +82,6 @@ Here's where all these things live:
 * `visualizations/`: Data visualizations we found useful to keep around.
 * `predictive_model/`: Regression analysis for crime data. Not yet committed.
 
-
-##The data: open crime report data, jail inmate release data.
-
-The exploratory data analysis was conducted on the [Chicago Crime Portal Data]("https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2#column-menu").
-We restricted our analysis to data compiled through mid-2013.  For each crime report documented from the beginning of 2001 , these data contain the ID, case number, date, block, IUCR (Illinois Uniform Crime Reporting) code, type of crime (battery,
-criminal assault, burglary, battery, vehicular theft, etc.) based on the corresponding IUCR code, a more detailed description, a
-description of the incident's location (sidewalk, street, residential property, etc.), whether or not an arrest was made, whether or not
-the incident was domestic, and its specific locaiton.  
-
-The spatiotemporal metrics were calculated using the Cook County Jail Data.  These data include inmate's charges, self-reported
-home address, booking/release dates, and some personal identifiers.  
 
 ### Installation Guide
 git clone https://github.com/dssg/publicsafety
