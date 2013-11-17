@@ -21,6 +21,8 @@ of violence.
 
 ## The solution: exploratory data analysis, spatial autocorrelation tests
 
+![pic](https://raw.github.com/dssg/dssg.github.io/761993c24ea2991170ef64048115cb805f5f13fb/img/posts/publicsafety-screenshot.png)
+
 Criminologists know that, in Chicago in particular, 
 there are some particularly crime-ridden neighborhoods with much higher levels of violence than those of other neighborhoods.  And 
 we also know that crime varies accross time; crime spikes on Fridays and during the summer because the weekend and warm weather attract
@@ -103,6 +105,9 @@ Python 2.7.3
 ```
 
 See also requirements.txt.
+
+## Team
+![Team](https://raw.github.com/dssg/dssg.github.io/761993c24ea2991170ef64048115cb805f5f13fb/img/people/teams/publicsafety.png)
 
 
 ## Contributing to the Project
