@@ -3,7 +3,7 @@ import os
 
 DB_USER  = 'cpd'
 DB_NAME  = 'cpd'
-DB_HOST  = 'dssgpg'
+DB_HOST  = 'localhost'
 DB_PASSWORD  = None
 
 setup_filename = '../db_setup.cfg'
